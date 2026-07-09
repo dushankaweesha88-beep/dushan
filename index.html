@@ -1,0 +1,2617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Premium Gaming Hub - Your ultimate destination for gaming resources, tools, and premium plans. Get daily free downloads, fix errors, and level up your gaming experience.">
+    <meta name="keywords" content="gaming, free fire, downloads, premium plans, gaming tools, emulator, game resources">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Premium Gaming Hub">
+    <meta property="og:description" content="Ultimate gaming destination with daily downloads, premium plans, and error fixes.">
+    <meta property="og:type" content="website">
+    <title>Premium Gaming Hub | Daily Downloads & Premium Plans</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --bg-deep: #050505;
+            --bg-dark: #0d0d0d;
+            --bg-gray: #1a1a1a;
+            --bg-card: rgba(22, 22, 22, 0.75);
+            --primary: #ffffff;
+            --primary-dim: #d0d0d0;
+            --secondary: #b0b0b0;
+            --secondary-dim: #8a8a8a;
+            --accent: #6e6e6e;
+            --text-primary: #f0f0f0;
+            --text-secondary: #c5c5c5;
+            --text-muted: #8f8f8f;
+            --glass-bg: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.10);
+            --glass-hover: rgba(255, 255, 255, 0.05);
+            --success: #4caf84;
+            --danger: #e05555;
+            --warning: #d4a843;
+            --gradient-1: linear-gradient(135deg, #ffffff, #b0b0b0);
+            --gradient-2: linear-gradient(135deg, #c5c5c5, #7a7a7a);
+            --gradient-3: linear-gradient(135deg, #e0e0e0, #9e9e9e);
+            --shadow-glow: 0 0 30px rgba(255, 255, 255, 0.2);
+            --shadow-glow-strong: 0 0 30px rgba(255, 255, 255, 0.35);
+            --shadow-glow-subtle: 0 0 20px rgba(200, 200, 200, 0.15);
+            --radius-sm: 10px;
+            --radius: 16px;
+            --radius-lg: 24px;
+            --radius-xl: 32px;
+            --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scrollbar-width: thin;
+            scrollbar-color: #888 var(--bg-dark);
+            font-size: 16px;
+        }
+
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-dark);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #555;
+            border-radius: 10px;
+        }
+
+        body {
+            font-family: 'Rajdhani', 'Poppins', sans-serif;
+            background: var(--bg-deep);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            cursor: none;
+            min-height: 100vh;
+            -webkit-tap-highlight-color: transparent;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body.body-no-scroll {
+            overflow: hidden;
+        }
+
+        /* Custom Cursor */
+        #custom-cursor {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 99999;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.9) 0%, rgba(200, 200, 200, 0.55) 40%, rgba(180, 180, 180, 0) 70%);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.7), 0 0 40px rgba(200, 200, 200, 0.4), 0 0 60px rgba(255, 255, 255, 0.2);
+            transition: width 0.15s ease, height 0.15s ease, transform 0.08s ease;
+            transform: translate(-50%, -50%);
+            mix-blend-mode: screen;
+        }
+        #custom-cursor.cursor-hover {
+            width: 44px;
+            height: 44px;
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.9), 0 0 60px rgba(220, 220, 220, 0.6), 0 0 80px rgba(200, 200, 200, 0.35);
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.6) 0%, rgba(210, 210, 210, 0.35) 50%, rgba(180, 180, 180, 0) 75%);
+        }
+        #cursor-trail {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 99998;
+            background: rgba(200, 200, 200, 0.45);
+            box-shadow: 0 0 15px rgba(200, 200, 200, 0.5);
+            transition: transform 0.25s ease-out, opacity 0.3s ease;
+            transform: translate(-50%, -50%);
+        }
+
+        /* Loading Screen */
+        #loading-screen {
+            position: fixed;
+            inset: 0;
+            background: var(--bg-deep);
+            z-index: 100000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            transition: opacity 0.6s ease, visibility 0.6s ease;
+        }
+        #loading-screen.hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+        .loader-ring {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: 3px solid transparent;
+            border-top-color: #fff;
+            border-right-color: #aaa;
+            animation: loaderSpin 1.2s linear infinite;
+            position: relative;
+        }
+        .loader-ring::before {
+            content: '';
+            position: absolute;
+            inset: 8px;
+            border-radius: 50%;
+            border: 3px solid transparent;
+            border-bottom-color: #ccc;
+            border-left-color: #fff;
+            animation: loaderSpin 0.8s linear infinite reverse;
+        }
+        .loader-text {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-top: 20px;
+            letter-spacing: 4px;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+        @keyframes loaderSpin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        @keyframes pulse {
+            0%,
+            100% {
+                opacity: 0.6;
+            }
+            50% {
+                opacity: 1;
+            }
+        }
+
+        /* Particles Canvas */
+        #particles-canvas {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* Main Content Wrapper */
+        .main-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 15px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: var(--transition);
+            background: transparent;
+        }
+        .navbar.scrolled {
+            background: rgba(10, 10, 10, 0.88);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--glass-border);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+            padding: 10px 30px;
+        }
+        .nav-logo {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.6rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+            z-index: 1001;
+        }
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 8px;
+            align-items: center;
+        }
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 600;
+            font-size: 1.05rem;
+            letter-spacing: 1px;
+            padding: 10px 16px;
+            border-radius: 25px;
+            transition: var(--transition);
+            position: relative;
+            white-space: nowrap;
+            cursor: none;
+        }
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #fff;
+            background: var(--glass-bg);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.15);
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+        }
+        .nav-links a.active {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+        }
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: none;
+            z-index: 1001;
+            background: none;
+            border: none;
+            padding: 8px;
+        }
+        .hamburger span {
+            width: 28px;
+            height: 2.5px;
+            background: var(--text-primary);
+            border-radius: 3px;
+            transition: var(--transition);
+            box-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
+        }
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            position: fixed;
+            inset: 0;
+            background: rgba(5, 5, 5, 0.97);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            z-index: 999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 20px;
+            transform: translateX(100%);
+            transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .mobile-menu.open {
+            transform: translateX(0);
+        }
+        .mobile-menu a {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            color: var(--text-primary);
+            text-decoration: none;
+            letter-spacing: 3px;
+            padding: 15px 30px;
+            transition: var(--transition);
+            cursor: none;
+        }
+        .mobile-menu a:hover {
+            color: #fff;
+            text-shadow: 0 0 20px #fff;
+        }
+
+        /* Section Base */
+        .section {
+            padding: 100px 20px;
+            position: relative;
+            z-index: 1;
+        }
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        .section-tag {
+            display: inline-block;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 4px;
+            color: #ddd;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+        }
+        .section-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(2rem, 4vw, 3.2rem);
+            font-weight: 800;
+            letter-spacing: 2px;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+        }
+        .section-subtitle {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            font-weight: 400;
+            letter-spacing: 1px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 120px 20px 80px;
+            position: relative;
+        }
+        .hero-content {
+            max-width: 800px;
+        }
+        .hero-badge {
+            display: inline-block;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 5px;
+            color: #ddd;
+            border: 1px solid rgba(255, 255, 255, 0.35);
+            padding: 8px 20px;
+            border-radius: 30px;
+            margin-bottom: 25px;
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+            animation: glowPulse 3s ease-in-out infinite;
+            background: rgba(255, 255, 255, 0.04);
+        }
+        @keyframes glowPulse {
+            0%,
+            100% {
+                box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+            }
+            50% {
+                box-shadow: 0 0 35px rgba(255, 255, 255, 0.5), 0 0 60px rgba(200, 200, 200, 0.3);
+            }
+        }
+        .hero-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(2.8rem, 6vw, 5rem);
+            font-weight: 900;
+            letter-spacing: 3px;
+            line-height: 1.15;
+            margin-bottom: 20px;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .hero-desc {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 35px;
+            letter-spacing: 1px;
+        }
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 700;
+            font-size: 1.05rem;
+            letter-spacing: 1.5px;
+            padding: 14px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            cursor: none;
+            border: none;
+            position: relative;
+            overflow: hidden;
+            transition: var(--transition);
+            text-transform: uppercase;
+            z-index: 1;
+        }
+        .btn-primary {
+            background: #fff;
+            color: #111;
+            box-shadow: var(--shadow-glow);
+        }
+        .btn-primary:hover {
+            box-shadow: 0 0 50px rgba(255, 255, 255, 0.5), 0 0 80px rgba(200, 200, 200, 0.3);
+            transform: translateY(-3px);
+            background: #f0f0f0;
+        }
+        .btn-outline {
+            background: transparent;
+            color: #fff;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+        .btn-outline:hover {
+            border-color: #fff;
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.35);
+            transform: translateY(-3px);
+            background: rgba(255, 255, 255, 0.06);
+        }
+        .btn-dark {
+            background: #1a1a1a;
+            color: #fff;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            box-shadow: var(--shadow-glow-subtle);
+        }
+        .btn-dark:hover {
+            border-color: #fff;
+            box-shadow: 0 0 35px rgba(255, 255, 255, 0.35);
+            transform: translateY(-3px);
+            background: #222;
+        }
+        .btn-ripple {
+            position: relative;
+            overflow: hidden;
+        }
+        .ripple-effect {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.4);
+            transform: scale(0);
+            animation: ripple 0.6s ease-out forwards;
+            pointer-events: none;
+            z-index: 0;
+        }
+        @keyframes ripple {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+
+        /* Floating Shapes */
+        .floating-shape {
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 0;
+            animation: floatShape 8s ease-in-out infinite;
+        }
+        .floating-shape.shape-1 {
+            width: 120px;
+            height: 120px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.12) 0%, transparent 70%);
+            top: 15%;
+            left: 8%;
+            animation-delay: 0s;
+        }
+        .floating-shape.shape-2 {
+            width: 80px;
+            height: 80px;
+            background: radial-gradient(circle, rgba(200, 200, 200, 0.14) 0%, transparent 70%);
+            top: 60%;
+            right: 10%;
+            animation-delay: 2s;
+        }
+        .floating-shape.shape-3 {
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle, rgba(180, 180, 180, 0.11) 0%, transparent 70%);
+            bottom: 20%;
+            left: 20%;
+            animation-delay: 4s;
+        }
+        .floating-shape.shape-4 {
+            width: 60px;
+            height: 60px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.16) 0%, transparent 70%);
+            top: 30%;
+            right: 20%;
+            animation-delay: 1s;
+        }
+        @keyframes floatShape {
+            0%,
+            100% {
+                transform: translate(0, 0) scale(1);
+            }
+            25% {
+                transform: translate(30px, -40px) scale(1.2);
+            }
+            50% {
+                transform: translate(-20px, -20px) scale(0.9);
+            }
+            75% {
+                transform: translate(-30px, 30px) scale(1.15);
+            }
+        }
+
+        /* Features Section */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+        .feature-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius);
+            padding: 35px 28px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: var(--radius);
+            padding: 1.5px;
+            background: var(--gradient-1);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            opacity: 0;
+            transition: var(--transition);
+        }
+        .feature-card:hover {
+            transform: translateY(-8px);
+            background: var(--glass-hover);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 40px rgba(255, 255, 255, 0.1);
+        }
+        .feature-card:hover::before {
+            opacity: 1;
+        }
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 18px;
+            display: inline-block;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            transition: var(--transition);
+        }
+        .feature-card:hover .feature-icon {
+            transform: scale(1.2);
+            filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.5));
+        }
+        .feature-card h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            color: #fff;
+        }
+        .feature-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Stats Section */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+            text-align: center;
+        }
+        .stat-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius);
+            padding: 35px 20px;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            transition: var(--transition);
+        }
+        .stat-card:hover {
+            box-shadow: 0 0 40px rgba(200, 200, 200, 0.18);
+            border-color: rgba(200, 200, 200, 0.3);
+        }
+        .stat-number {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3rem;
+            font-weight: 900;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: block;
+        }
+        .stat-label {
+            color: var(--text-muted);
+            font-size: 1rem;
+            letter-spacing: 2px;
+            font-weight: 500;
+        }
+
+        /* Glass Card (Generic) */
+        .glass-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius);
+            padding: 30px;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        .glass-card:hover {
+            background: var(--glass-hover);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+        }
+        .glass-card.glow-border-white {
+            border-color: rgba(255, 255, 255, 0.25);
+            box-shadow: 0 0 25px rgba(255, 255, 255, 0.07);
+        }
+        .glass-card.glow-border-gray {
+            border-color: rgba(180, 180, 180, 0.25);
+            box-shadow: 0 0 25px rgba(180, 180, 180, 0.07);
+        }
+        .glass-card.glow-border-white:hover {
+            box-shadow: 0 0 50px rgba(255, 255, 255, 0.2);
+        }
+        .glass-card.glow-border-gray:hover {
+            box-shadow: 0 0 50px rgba(200, 200, 200, 0.2);
+        }
+
+        /* Download Card */
+        .download-card {
+            max-width: 550px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 40px 30px;
+        }
+        .download-card .card-icon {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .download-card h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+        .credential-box {
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: var(--radius-sm);
+            padding: 15px 20px;
+            margin: 15px 0;
+            display: inline-block;
+            text-align: left;
+            border: 1px dashed rgba(255, 255, 255, 0.2);
+        }
+        .credential-box span {
+            display: block;
+            font-family: 'Courier New', monospace;
+            letter-spacing: 1px;
+            color: #ddd;
+            font-size: 0.9rem;
+        }
+        .credential-box .cred-label {
+            color: var(--text-muted);
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* Pricing Cards */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .pricing-card {
+            text-align: center;
+            padding: 40px 30px;
+            transition: var(--transition);
+        }
+        .pricing-card.featured {
+            border-color: rgba(255, 255, 255, 0.4);
+            box-shadow: 0 0 40px rgba(255, 255, 255, 0.15);
+            transform: scale(1.03);
+        }
+        .pricing-card.featured:hover {
+            transform: scale(1.06);
+            box-shadow: 0 0 60px rgba(255, 255, 255, 0.28);
+        }
+        .pricing-card .plan-icon {
+            font-size: 2.8rem;
+            margin-bottom: 12px;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .pricing-card h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.4rem;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+        }
+        .pricing-card .price {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 900;
+            background: var(--gradient-2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin: 15px 0;
+        }
+        .pricing-card .price small {
+            font-size: 1rem;
+            -webkit-text-fill-color: var(--text-muted);
+        }
+        .pricing-card .features-list {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+            text-align: left;
+            display: inline-block;
+        }
+        .pricing-card .features-list li {
+            padding: 6px 0;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+        .pricing-card .features-list li i {
+            color: var(--success);
+            margin-right: 8px;
+        }
+
+        /* Paid Plan Notice */
+        .paid-notice {
+            max-width: 750px;
+            margin: 30px auto 0;
+            text-align: center;
+            padding: 20px 25px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: var(--radius-sm);
+            color: #ccc;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+            line-height: 1.7;
+        }
+        .paid-notice i {
+            color: #fff;
+            margin-right: 6px;
+        }
+        .paid-notice strong {
+            color: #fff;
+        }
+
+        /* Status Badges */
+        .status-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .status-card {
+            text-align: center;
+            padding: 35px 25px;
+        }
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 22px;
+            border-radius: 30px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-top: 15px;
+        }
+        .status-badge.available {
+            background: rgba(76, 175, 132, 0.12);
+            color: #4caf84;
+            border: 1px solid rgba(76, 175, 132, 0.35);
+            box-shadow: 0 0 25px rgba(76, 175, 132, 0.25);
+            animation: statusGlowGreen 2s ease-in-out infinite;
+        }
+        .status-badge.closed {
+            background: rgba(224, 85, 85, 0.12);
+            color: #e05555;
+            border: 1px solid rgba(224, 85, 85, 0.35);
+            box-shadow: 0 0 25px rgba(224, 85, 85, 0.25);
+            animation: statusGlowRed 2s ease-in-out infinite;
+        }
+        @keyframes statusGlowGreen {
+            0%,
+            100% {
+                box-shadow: 0 0 20px rgba(76, 175, 132, 0.25);
+            }
+            50% {
+                box-shadow: 0 0 40px rgba(76, 175, 132, 0.55);
+            }
+        }
+        @keyframes statusGlowRed {
+            0%,
+            100% {
+                box-shadow: 0 0 20px rgba(224, 85, 85, 0.25);
+            }
+            50% {
+                box-shadow: 0 0 40px rgba(224, 85, 85, 0.55);
+            }
+        }
+        .status-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+        .status-dot.green {
+            background: #4caf84;
+            box-shadow: 0 0 12px #4caf84;
+        }
+        .status-dot.red {
+            background: #e05555;
+            box-shadow: 0 0 12px #e05555;
+        }
+
+        /* Fix Error Cards */
+        .fix-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        .fix-card {
+            text-align: center;
+            padding: 30px 25px;
+        }
+        .fix-card .fix-icon {
+            font-size: 2.5rem;
+            margin-bottom: 12px;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .fix-card h4 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+
+        /* FAQ Section */
+        .faq-grid {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .faq-item {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+            transition: var(--transition);
+            cursor: none;
+        }
+        .faq-item:hover {
+            border-color: rgba(255, 255, 255, 0.25);
+        }
+        .faq-question {
+            padding: 18px 25px;
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #fff;
+            cursor: none;
+            transition: var(--transition);
+        }
+        .faq-question i {
+            transition: var(--transition);
+            color: #ccc;
+        }
+        .faq-item.open .faq-question i {
+            transform: rotate(180deg);
+        }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.3s ease;
+            padding: 0 25px;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+        .faq-item.open .faq-answer {
+            max-height: 200px;
+            padding: 0 25px 18px;
+        }
+
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .contact-card {
+            text-align: center;
+            padding: 30px 20px;
+            cursor: none;
+            transition: var(--transition);
+        }
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 35px rgba(255, 255, 255, 0.15);
+        }
+        .contact-card .contact-icon {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .contact-card h4 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1rem;
+            letter-spacing: 2px;
+            margin-bottom: 5px;
+        }
+        .contact-card p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        .footer {
+            padding: 50px 20px 30px;
+            border-top: 1px solid var(--glass-border);
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+        .footer-social {
+            display: flex;
+            justify-content: center;
+            gap: 18px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+        }
+        .footer-social a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            transition: var(--transition);
+            cursor: none;
+            text-decoration: none;
+        }
+        .footer-social a:hover {
+            color: #fff;
+            border-color: #fff;
+            box-shadow: 0 0 25px rgba(255, 255, 255, 0.3);
+            transform: translateY(-3px);
+        }
+        .footer-text {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+        }
+
+        /* Back to Top */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: #fff;
+            border: none;
+            color: #111;
+            font-size: 1.2rem;
+            cursor: none;
+            z-index: 100;
+            box-shadow: var(--shadow-glow);
+            transition: var(--transition);
+            opacity: 0;
+            transform: translateY(20px);
+            pointer-events: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .back-to-top.visible {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+        .back-to-top:hover {
+            box-shadow: 0 0 40px rgba(255, 255, 255, 0.55);
+            transform: translateY(-5px);
+        }
+
+        /* ============ KEY VERIFICATION MODAL (Free Download) ============ */
+        .key-modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(5, 5, 5, 0.85);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            z-index: 200000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: opacity 0.35s ease, visibility 0.35s ease;
+            padding: 20px;
+        }
+        .key-modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
+        .key-modal {
+            background: rgba(20, 20, 28, 0.95);
+            border: 1.5px solid rgba(255, 255, 255, 0.28);
+            border-radius: var(--radius-lg);
+            padding: 40px 30px 30px;
+            max-width: 440px;
+            width: 100%;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 0 60px rgba(255, 255, 255, 0.12), 0 0 120px rgba(180, 180, 180, 0.08), 0 25px 60px rgba(0, 0, 0, 0.6);
+            transform: translateY(30px) scale(0.92);
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .key-modal-overlay.active .key-modal {
+            transform: translateY(0) scale(1);
+        }
+        .key-modal-close {
+            position: absolute;
+            top: 14px;
+            right: 18px;
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            font-size: 1.4rem;
+            cursor: none;
+            transition: var(--transition);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+        }
+        .key-modal-close:hover {
+            color: #fff;
+            background: rgba(255, 255, 255, 0.06);
+            box-shadow: 0 0 20px rgba(224, 85, 85, 0.35);
+        }
+        .key-modal-icon {
+            font-size: 3.5rem;
+            margin-bottom: 12px;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: inline-block;
+            animation: keyIconFloat 3s ease-in-out infinite;
+        }
+        @keyframes keyIconFloat {
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+        .key-modal h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: #fff;
+            margin-bottom: 6px;
+        }
+        .key-modal .key-modal-subtitle {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 22px;
+            letter-spacing: 1px;
+        }
+        .key-input-wrapper {
+            position: relative;
+            margin-bottom: 10px;
+        }
+        .key-input {
+            width: 100%;
+            padding: 16px 20px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            letter-spacing: 6px;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.5);
+            border: 2px solid rgba(255, 255, 255, 0.15);
+            border-radius: 50px;
+            color: #fff;
+            outline: none;
+            transition: var(--transition);
+            caret-color: #fff;
+        }
+        .key-input:focus {
+            border-color: #fff;
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.25), 0 0 60px rgba(200, 200, 200, 0.12);
+            background: rgba(0, 0, 0, 0.65);
+        }
+        .key-input.shake {
+            animation: shakeInput 0.5s ease;
+            border-color: var(--danger) !important;
+            box-shadow: 0 0 30px rgba(224, 85, 85, 0.5) !important;
+        }
+        .key-input.success-flash {
+            border-color: var(--success) !important;
+            box-shadow: 0 0 30px rgba(76, 175, 132, 0.5) !important;
+            transition: all 0.25s ease;
+        }
+        @keyframes shakeInput {
+            0%,
+            100% {
+                transform: translateX(0);
+            }
+            10%,
+            50%,
+            90% {
+                transform: translateX(-8px);
+            }
+            30%,
+            70% {
+                transform: translateX(8px);
+            }
+        }
+        .key-error-msg {
+            color: var(--danger);
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 600;
+            font-size: 0.95rem;
+            letter-spacing: 1px;
+            min-height: 24px;
+            margin-bottom: 8px;
+            transition: var(--transition-fast);
+            opacity: 0;
+            transform: translateY(-5px);
+        }
+        .key-error-msg.visible {
+            opacity: 1;
+            transform: translateY(0);
+            animation: errorPulse 1.5s ease-in-out infinite;
+        }
+        @keyframes errorPulse {
+            0%,
+            100% {
+                text-shadow: 0 0 6px rgba(224, 85, 85, 0.4);
+            }
+            50% {
+                text-shadow: 0 0 18px rgba(224, 85, 85, 0.7), 0 0 30px rgba(224, 85, 85, 0.3);
+            }
+        }
+        .key-modal-buttons {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 6px;
+        }
+        .key-modal-buttons .btn {
+            font-size: 0.9rem;
+            padding: 12px 26px;
+            letter-spacing: 1.5px;
+        }
+        .btn-verify {
+            background: #fff;
+            color: #111;
+            box-shadow: var(--shadow-glow);
+            border: none;
+            cursor: none;
+        }
+        .btn-verify:hover {
+            box-shadow: 0 0 45px rgba(255, 255, 255, 0.55), 0 0 70px rgba(200, 200, 200, 0.35);
+            transform: translateY(-3px);
+        }
+        .btn-cancel {
+            background: transparent;
+            color: #fff;
+            border: 2px solid rgba(255, 255, 255, 0.25);
+            cursor: none;
+        }
+        .btn-cancel:hover {
+            border-color: rgba(224, 85, 85, 0.55);
+            box-shadow: 0 0 25px rgba(224, 85, 85, 0.25);
+            background: rgba(224, 85, 85, 0.06);
+        }
+
+        /* ============ PLAN KEY MODAL (Premium Plans) ============ */
+        .plan-modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(5, 5, 5, 0.85);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            z-index: 200001;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: opacity 0.35s ease, visibility 0.35s ease;
+            padding: 20px;
+        }
+        .plan-modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
+        .plan-modal {
+            background: rgba(20, 20, 28, 0.95);
+            border: 1.5px solid rgba(255, 255, 255, 0.28);
+            border-radius: var(--radius-lg);
+            padding: 40px 30px 30px;
+            max-width: 460px;
+            width: 100%;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 0 60px rgba(255, 255, 255, 0.12), 0 0 120px rgba(180, 180, 180, 0.08), 0 25px 60px rgba(0, 0, 0, 0.6);
+            transform: translateY(30px) scale(0.92);
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .plan-modal-overlay.active .plan-modal {
+            transform: translateY(0) scale(1);
+        }
+        .plan-modal-close {
+            position: absolute;
+            top: 14px;
+            right: 18px;
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            font-size: 1.4rem;
+            cursor: none;
+            transition: var(--transition);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+        }
+        .plan-modal-close:hover {
+            color: #fff;
+            background: rgba(255, 255, 255, 0.06);
+            box-shadow: 0 0 20px rgba(224, 85, 85, 0.35);
+        }
+        .plan-modal-icon {
+            font-size: 3.2rem;
+            margin-bottom: 10px;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: inline-block;
+        }
+        .plan-modal h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: #fff;
+            margin-bottom: 4px;
+        }
+        .plan-modal .plan-modal-plan-name {
+            color: #ccc;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+        .plan-modal-options {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            margin-bottom: 10px;
+        }
+        .plan-modal-options .btn {
+            font-size: 0.95rem;
+            padding: 14px 28px;
+            letter-spacing: 1.5px;
+            width: 100%;
+            justify-content: center;
+        }
+        .plan-key-input-wrapper {
+            display: none;
+            margin-top: 8px;
+            position: relative;
+        }
+        .plan-key-input-wrapper.visible {
+            display: block;
+        }
+        .plan-key-input {
+            width: 100%;
+            padding: 14px 18px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            letter-spacing: 5px;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.5);
+            border: 2px solid rgba(255, 255, 255, 0.15);
+            border-radius: 50px;
+            color: #fff;
+            outline: none;
+            transition: var(--transition);
+            caret-color: #fff;
+        }
+        .plan-key-input:focus {
+            border-color: #fff;
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.25);
+            background: rgba(0, 0, 0, 0.65);
+        }
+        .plan-key-input.shake {
+            animation: shakeInput 0.5s ease;
+            border-color: var(--danger) !important;
+            box-shadow: 0 0 30px rgba(224, 85, 85, 0.5) !important;
+        }
+        .plan-key-input.success-flash {
+            border-color: var(--success) !important;
+            box-shadow: 0 0 30px rgba(76, 175, 132, 0.5) !important;
+        }
+        .plan-key-error-msg {
+            color: var(--danger);
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 600;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            min-height: 22px;
+            margin-top: 6px;
+            transition: var(--transition-fast);
+            opacity: 0;
+            transform: translateY(-3px);
+        }
+        .plan-key-error-msg.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .plan-key-submit-row {
+            display: none;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 10px;
+        }
+        .plan-key-submit-row.visible {
+            display: flex;
+        }
+        .plan-key-submit-row .btn {
+            font-size: 0.85rem;
+            padding: 10px 20px;
+            letter-spacing: 1.2px;
+        }
+        .plan-option-divider {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            margin: 4px 0;
+        }
+        .plan-option-divider::before,
+        .plan-option-divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        /* Reveal animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+        .reveal.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .reveal-delay-1 {
+            transition-delay: 0.15s;
+        }
+        .reveal-delay-2 {
+            transition-delay: 0.3s;
+        }
+        .reveal-delay-3 {
+            transition-delay: 0.45s;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .nav-links {
+                display: none;
+            }
+            .hamburger {
+                display: flex;
+            }
+            .section {
+                padding: 70px 15px;
+            }
+            .hero-section {
+                padding: 100px 15px 60px;
+            }
+            .pricing-card.featured {
+                transform: scale(1);
+            }
+            .pricing-card.featured:hover {
+                transform: scale(1.03);
+            }
+            #custom-cursor,
+            #cursor-trail {
+                display: none;
+            }
+            body {
+                cursor: auto;
+            }
+            .btn,
+            .nav-links a,
+            .hamburger,
+            .faq-question,
+            .faq-item,
+            .footer-social a,
+            .back-to-top,
+            .contact-card,
+            .key-modal-close,
+            .plan-modal-close,
+            .btn-verify,
+            .btn-cancel,
+            .key-input,
+            .plan-key-input {
+                cursor: pointer;
+            }
+            .key-modal,
+            .plan-modal {
+                padding: 30px 20px 24px;
+                max-width: 92vw;
+            }
+            .key-modal h3,
+            .plan-modal h3 {
+                font-size: 1.1rem;
+            }
+            .key-input,
+            .plan-key-input {
+                font-size: 1rem;
+                padding: 14px 16px;
+                letter-spacing: 5px;
+            }
+        }
+        @media (max-width: 600px) {
+            .hero-title {
+                font-size: 2.2rem;
+                letter-spacing: 1px;
+            }
+            .btn {
+                padding: 12px 24px;
+                font-size: 0.9rem;
+                letter-spacing: 1px;
+            }
+            .hero-buttons {
+                gap: 10px;
+            }
+            .navbar {
+                padding: 10px 15px;
+            }
+            .navbar.scrolled {
+                padding: 8px 15px;
+            }
+            .nav-logo {
+                font-size: 1.3rem;
+            }
+            .section-title {
+                font-size: 1.6rem;
+            }
+            .stat-number {
+                font-size: 2.2rem;
+            }
+            .pricing-card .price {
+                font-size: 2rem;
+            }
+            .back-to-top {
+                bottom: 20px;
+                right: 20px;
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+            .glass-card {
+                padding: 20px 15px;
+            }
+            .download-card {
+                padding: 25px 18px;
+            }
+            .key-modal,
+            .plan-modal {
+                padding: 28px 16px 20px;
+                border-radius: var(--radius);
+            }
+            .key-modal-icon,
+            .plan-modal-icon {
+                font-size: 2.5rem;
+            }
+            .key-modal-buttons .btn,
+            .plan-key-submit-row .btn,
+            .plan-modal-options .btn {
+                padding: 10px 18px;
+                font-size: 0.8rem;
+                letter-spacing: 1px;
+            }
+            .key-modal-close,
+            .plan-modal-close {
+                top: 8px;
+                right: 10px;
+                font-size: 1.1rem;
+                width: 30px;
+                height: 30px;
+            }
+            .paid-notice {
+                padding: 15px 16px;
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        <div class="loader-ring"></div>
+        <p class="loader-text">LOADING</p>
+    </div>
+
+    <!-- Custom Cursor -->
+    <div id="custom-cursor"></div>
+    <div id="cursor-trail"></div>
+
+    <!-- Particles Canvas -->
+    <canvas id="particles-canvas"></canvas>
+
+    <!-- Main Content -->
+    <div class="main-content">
+
+        <!-- Navigation -->
+        <nav class="navbar" id="navbar">
+            <a href="#home" class="nav-logo">KAVI HEX</a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home" class="active" data-section="home">Home</a></li>
+                <li><a href="#downloads" data-section="downloads">Downloads</a></li>
+                <li><a href="#plans" data-section="plans">Plans</a></li>
+                <li><a href="#status" data-section="status">Status</a></li>
+                <li><a href="#fix" data-section="fix">Fix Errors</a></li>
+                <li><a href="#faq" data-section="faq">FAQ</a></li>
+                <li><a href="#contact" data-section="contact">Contact</a></li>
+            </ul>
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+        </nav>
+
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="#home" data-mobile-link>Home</a>
+            <a href="#downloads" data-mobile-link>Downloads</a>
+            <a href="#plans" data-mobile-link>Plans</a>
+            <a href="#status" data-mobile-link>Status</a>
+            <a href="#fix" data-mobile-link>Fix Errors</a>
+            <a href="#faq" data-mobile-link>FAQ</a>
+            <a href="#contact" data-mobile-link>Contact</a>
+        </div>
+
+        <!-- Hero Section -->
+        <section class="hero-section section" id="home">
+            <div class="floating-shape shape-1"></div>
+            <div class="floating-shape shape-2"></div>
+            <div class="floating-shape shape-3"></div>
+            <div class="floating-shape shape-4"></div>
+            <div class="hero-content reveal">
+                <span class="hero-badge">⚡ PREMIUM HEX</span>
+                <h1 class="hero-title">Level Up Your Gaming Experience</h1>
+                <p class="hero-desc">Unlock exclusive gaming resources, daily free panels, premium panels, and expert error fixes — all in one place.</p>
+                <div class="hero-buttons">
+                    <a href="#downloads" class="btn btn-primary btn-ripple"><i class="fas fa-download"></i> Get Started</a>
+                    <a href="#plans" class="btn btn-outline btn-ripple"><i class="fas fa-crown"></i> View Plans</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="section" id="features">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="section-tag">Why Choose Us</span>
+                    <h2 class="section-title">Premium Features</h2>
+                    <p class="section-subtitle">Everything you need to dominate your game</p>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-card reveal reveal-delay-1">
+                        <div class="feature-icon"><i class="fas fa-bolt"></i></div>
+                        <h3>Lightning Fast</h3>
+                        <p>Optimized downloads and instant access to all resources without delays.</p>
+                    </div>
+                    <div class="feature-card reveal reveal-delay-2">
+                        <div class="feature-icon"><i class="fas fa-shield-halved"></i></div>
+                        <h3>Secure & Verified</h3>
+                        <p>All files are scanned and verified to ensure maximum security for your device.</p>
+                    </div>
+                    <div class="feature-card reveal reveal-delay-3">
+                        <div class="feature-icon"><i class="fas fa-headset"></i></div>
+                        <h3>24/7 Support</h3>
+                        <p>Dedicated support team ready to help you with any gaming-related issues.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="section" id="stats">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-card reveal">
+                        <span class="stat-number" data-count="112">0</span>
+                        <span class="stat-label">Happy Gamers</span>
+                    </div>
+                    <div class="stat-card reveal reveal-delay-1">
+                        <span class="stat-number" data-count="109">0</span>
+                        <span class="stat-label">Downloads Served</span>
+                    </div>
+                    <div class="stat-card reveal reveal-delay-2">
+                        <span class="stat-number" data-count="99">0</span>
+                        <span class="stat-label">% Uptime</span>
+                    </div>
+                    <div class="stat-card reveal reveal-delay-3">
+                        <span class="stat-number" data-count="24">0</span>
+                        <span class="stat-label">/7 Support</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Daily Free Downloads Section -->
+        <section class="section" id="downloads">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="section-tag">Daily Free Panel</span>
+                    <h2 class="section-title">Free Downloads</h2>
+                    <p class="section-subtitle">Get your daily free external panel gaming resources</p>
+                </div>
+                <div class="glass-card download-card glow-border-white reveal">
+                    <div class="card-icon"><i class="fas fa-gift"></i></div>
+                    <h3>Daily Free Panel Download</h3>
+                    <p style="color:var(--text-muted);margin-bottom:10px;">All Panel Requirements Pack</p>
+                    <!-- KEY-PROTECTED DOWNLOAD BUTTON -->
+                    <a href="javascript:void(0)" onclick="showKeyModal()" class="btn btn-primary btn-ripple" style="margin:15px 0;">
+                        <i class="fas fa-lock"></i> Download Now
+                    </a>
+                    <div class="credential-box">
+                        <span class="cred-label">Login Credentials</span>
+                        <span>👤 User: <strong>EGYPT</strong></span>
+                        <span>🔑 Password: <strong>HARDLUCK</strong></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Premium Plans Section -->
+        <section class="section" id="plans">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="section-tag">Pricing</span>
+                    <h2 class="section-title">Premium Plans</h2>
+                    <p class="section-subtitle">Choose the plan that fits your gaming needs</p>
+                </div>
+                <div class="pricing-grid">
+                    <!-- Weekly Plan -->
+                    <div class="glass-card pricing-card glow-border-gray reveal">
+                        <div class="plan-icon"><i class="fas fa-calendar-week"></i></div>
+                        <h3>Weekly Plan</h3>
+                        <div class="price">LKR 500<small>/week</small></div>
+                        <ul class="features-list">
+                            <li><i class="fas fa-check-circle"></i> Full access for 7 days</li>
+                            <li><i class="fas fa-check-circle"></i> Premium downloads</li>
+                            <li><i class="fas fa-check-circle"></i> Priority support</li>
+                            <li><i class="fas fa-check-circle"></i> No ads</li>
+                        </ul>
+                        <a href="javascript:void(0)" onclick="showPlanModal('weekly', 'Weekly Plan', 'LKR 500/week')" class="btn btn-outline btn-ripple"><i class="fas fa-shopping-cart"></i> Buy Now</a>
+                    </div>
+                    <!-- Monthly Plan -->
+                    <div class="glass-card pricing-card featured glow-border-white reveal reveal-delay-1">
+                        <div class="plan-icon"><i class="fas fa-crown"></i></div>
+                        <h3>Monthly Plan</h3>
+                        <div class="price">LKR 2000<small>/month</small></div>
+                        <ul class="features-list">
+                            <li><i class="fas fa-check-circle"></i> Full access for 30 days</li>
+                            <li><i class="fas fa-check-circle"></i> All premium downloads</li>
+                            <li><i class="fas fa-check-circle"></i> VIP priority support</li>
+                            <li><i class="fas fa-check-circle"></i> No ads</li>
+                            <li><i class="fas fa-check-circle"></i> Exclusive bonuses</li>
+                        </ul>
+                        <a href="javascript:void(0)" onclick="showPlanModal('monthly', 'Monthly Plan', 'LKR 2000/month')" class="btn btn-primary btn-ripple"><i class="fas fa-shopping-cart"></i> Buy Now</a>
+                    </div>
+                </div>
+                <!-- Paid Plan Notice -->
+                <div class="paid-notice reveal reveal-delay-2">
+                    <i class="fas fa-info-circle"></i>
+                    <strong>Paid Plan Notice:</strong> You can use our premium plans on your <strong>main ID — 100% safe</strong>. This panel features <strong>updated paid codes</strong>, <strong>BR kill limit 15</strong>, and a <strong>more safe method with Prime 8 accounts</strong>. Your account security is our top priority.
+                </div>
+            </div>
+        </section>
+
+        <!-- Status Page Section -->
+        <section class="section" id="status">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="section-tag">Service Status</span>
+                    <h2 class="section-title">Status Page</h2>
+                    <p class="section-subtitle">Real-time service availability</p>
+                </div>
+                <div class="status-grid">
+                    <div class="glass-card status-card glow-border-gray reveal">
+                        <h3 style="font-family:'Orbitron',sans-serif;letter-spacing:2px;font-size:1.1rem;">Internal Service</h3>
+                        <div class="status-badge closed">
+                            <span class="status-dot red"></span> Temporarily Closed
+                        </div>
+                        <p style="color:var(--text-muted);margin-top:12px;font-size:0.9rem;">Our internal service is currently undergoing maintenance. Please check back later.</p>
+                    </div>
+                    <div class="glass-card status-card glow-border-white reveal reveal-delay-1">
+                        <h3 style="font-family:'Orbitron',sans-serif;letter-spacing:2px;font-size:1.1rem;">External Service</h3>
+                        <div class="status-badge available">
+                            <span class="status-dot green"></span> Available
+                        </div>
+                        <p style="color:var(--text-muted);margin-top:12px;font-size:0.9rem;">All external services are operational and running smoothly.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Fix Error Section -->
+        <section class="section" id="fix">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="section-tag">Troubleshoot</span>
+                    <h2 class="section-title">Fix Errors</h2>
+                    <p class="section-subtitle">Essential resources to resolve common issues</p>
+                </div>
+                <div class="fix-cards-grid">
+                    <div class="glass-card fix-card glow-border-white reveal">
+                        <div class="fix-icon"><i class="fas fa-file-archive"></i></div>
+                        <h4>Download Requirements</h4>
+                        <p style="color:var(--text-muted);margin-bottom:15px;font-size:0.9rem;">All necessary panel requirements in one pack</p>
+                        <a href="https://www.mediafire.com/file/rbqgwny15e10vbb/ALL+PANEL+REQUIRMENTS.rar/file" target="_blank" rel="noopener" class="btn btn-primary btn-ripple" style="font-size:0.85rem;padding:10px 22px;">
+                            <i class="fas fa-download"></i> Download
+                        </a>
+                    </div>
+                    <div class="glass-card fix-card glow-border-gray reveal reveal-delay-1">
+                        <div class="fix-icon"><i class="fas fa-desktop"></i></div>
+                        <h4>Working Emulator</h4>
+                        <p style="color:var(--text-muted);margin-bottom:15px;font-size:0.9rem;">BlueStacks — the best Android emulator for gaming</p>
+                        <a href="https://www.mediafire.com/file/zmobh0yj5p4fvsu/BlueStacks_App_Player_v5.22.130.1019.exe/file" target="_blank" rel="noopener" class="btn btn-outline btn-ripple" style="font-size:0.85rem;padding:10px 22px;">
+                            <i class="fas fa-external-link-alt"></i> Download
+                        </a>
+                    </div>
+                    <div class="glass-card fix-card glow-border-white reveal reveal-delay-2">
+                        <div class="fix-icon"><i class="fas fa-gamepad"></i></div>
+                        <h4>Working Free Fire Version</h4>
+                        <p style="color:var(--text-muted);margin-bottom:15px;font-size:0.9rem;">Official Garena Free Fire download page</p>
+                        <a href="https://www.mediafire.com/file/gmr17b36huxbv6k/FREE+FIRE+OB54+BROOTH.rar/file" target="_blank" rel="noopener" class="btn btn-outline btn-ripple" style="font-size:0.85rem;padding:10px 22px;">
+                            <i class="fas fa-external-link-alt"></i> Download
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="section" id="faq">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="section-tag">Help Center</span>
+                    <h2 class="section-title">Frequently Asked Questions</h2>
+                    <p class="section-subtitle">Quick answers to common queries</p>
+                </div>
+                <div class="faq-grid">
+                    <div class="faq-item reveal">
+                        <div class="faq-question">
+                            <span>What is included in the premium plans?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Premium plans include full access to all downloads, priority support, ad-free experience, and exclusive bonus content updated regularly.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item reveal reveal-delay-1">
+                        <div class="faq-question">
+                            <span>How do I download the free daily resources?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Click the Download Now button in the Downloads section. You'll be asked to enter a secure access key to unlock the download link. The key can be obtained via WhatsApp at 070 314 0784.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item reveal reveal-delay-2">
+                        <div class="faq-question">
+                            <span>Are the downloads safe and virus-free?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Yes! All files are thoroughly scanned and verified before being uploaded. We prioritize your security above everything else.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item reveal reveal-delay-3">
+                        <div class="faq-question">
+                            <span>How can I contact support?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>You can reach us via email at dushankaweesha68@gmail.com or via WhatsApp at 070 314 0784 for instant assistance from our team.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="section" id="contact">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="section-tag">Get In Touch</span>
+                    <h2 class="section-title">Contact Us</h2>
+                    <p class="section-subtitle">We'd love to hear from you</p>
+                </div>
+                <div class="contact-grid">
+                    <div class="glass-card contact-card glow-border-white reveal">
+                        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                        <h4>Email</h4>
+                        <p>dushankaweesha68@gmail.com</p>
+                    </div>
+                    <div class="glass-card contact-card glow-border-gray reveal reveal-delay-1">
+                        <div class="contact-icon"><i class="fab fa-discord"></i></div>
+                        <h4>Discord</h4>
+                        <p>discord.gg/gamehub</p>
+                    </div>
+                    <div class="glass-card contact-card glow-border-white reveal reveal-delay-2">
+                        <div class="contact-icon"><i class="fab fa-telegram"></i></div>
+                        <h4>Telegram</h4>
+                        <p>t.me/gamehub_official</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-social">
+                <a href="#" aria-label="Discord"><i class="fab fa-discord"></i></a>
+                <a href="#" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
+                <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            </div>
+            <p class="footer-text">&copy; 2026 Premium Gaming Hub. All rights reserved. Made with ❤️ for gamers.</p>
+        </footer>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- ============ KEY VERIFICATION MODAL (Free Download) ============ -->
+    <div class="key-modal-overlay" id="keyModalOverlay">
+        <div class="key-modal" id="keyModal">
+            <button class="key-modal-close" onclick="closeKeyModal()" aria-label="Close modal">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="key-modal-icon">
+                <i class="fas fa-key"></i>
+            </div>
+            <h3>Access Verification</h3>
+            <p class="key-modal-subtitle">Enter the secure key to unlock your download</p>
+            <div class="key-input-wrapper">
+                <input type="text" class="key-input" id="keyInput" placeholder="Enter Key" maxlength="20" autocomplete="off">
+            </div>
+            <p class="key-error-msg" id="keyErrorMsg"></p>
+            <div class="key-modal-buttons">
+                <button class="btn btn-verify btn-ripple" onclick="verifyKey()">
+                    <i class="fas fa-check-circle"></i> Verify & Download
+                </button>
+                <button class="btn btn-cancel btn-ripple" onclick="closeKeyModal()">
+                    <i class="fas fa-times"></i> Cancel
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============ PLAN KEY MODAL (Premium Plans) ============ -->
+    <div class="plan-modal-overlay" id="planModalOverlay">
+        <div class="plan-modal" id="planModal">
+            <button class="plan-modal-close" onclick="closePlanModal()" aria-label="Close modal">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="plan-modal-icon">
+                <i class="fas fa-crown"></i>
+            </div>
+            <h3>Premium Plan Access</h3>
+            <p class="plan-modal-plan-name" id="planModalPlanName">Weekly Plan</p>
+            <div class="plan-modal-options" id="planModalOptions">
+                <button class="btn btn-primary btn-ripple" id="planBuyKeyBtn" onclick="planBuyKey()">
+                    <i class="fab fa-whatsapp"></i> Buy Key
+                </button>
+                <div class="plan-option-divider">OR</div>
+                <button class="btn btn-dark btn-ripple" id="planEnterKeyBtn" onclick="planShowKeyInput()">
+                    <i class="fas fa-key"></i> Enter Key
+                </button>
+            </div>
+            <div class="plan-key-input-wrapper" id="planKeyInputWrapper">
+                <input type="text" class="plan-key-input" id="planKeyInput" placeholder="Enter Plan Key" maxlength="20" autocomplete="off">
+                <p class="plan-key-error-msg" id="planKeyErrorMsg"></p>
+            </div>
+            <div class="plan-key-submit-row" id="planKeySubmitRow">
+                <button class="btn btn-verify btn-ripple" onclick="verifyPlanKey()">
+                    <i class="fas fa-check-circle"></i> Verify & Access
+                </button>
+                <button class="btn btn-cancel btn-ripple" onclick="resetPlanModal()">
+                    <i class="fas fa-arrow-left"></i> Back
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        (function() {
+            // ===== LOADING SCREEN =====
+            const loadingScreen = document.getElementById('loading-screen');
+            window.addEventListener('load', () => {
+                setTimeout(() => {
+                    loadingScreen.classList.add('hidden');
+                }, 800);
+            });
+            if (document.readyState === 'complete') {
+                setTimeout(() => {
+                    loadingScreen.classList.add('hidden');
+                }, 400);
+            }
+
+            // ===== CUSTOM CURSOR =====
+            const cursor = document.getElementById('custom-cursor');
+            const cursorTrail = document.getElementById('cursor-trail');
+            const isMobile = /Android|iPhone|iPad|iPod|webOS/i.test(navigator.userAgent) || window.innerWidth <=
+                992;
+
+            if (!isMobile) {
+                let mouseX = 0,
+                    mouseY = 0;
+                let trailX = 0,
+                    trailY = 0;
+
+                document.addEventListener('mousemove', (e) => {
+                    mouseX = e.clientX;
+                    mouseY = e.clientY;
+                    cursor.style.left = mouseX + 'px';
+                    cursor.style.top = mouseY + 'px';
+                });
+
+                function animateTrail() {
+                    trailX += (mouseX - trailX) * 0.15;
+                    trailY += (mouseY - trailY) * 0.15;
+                    cursorTrail.style.left = trailX + 'px';
+                    cursorTrail.style.top = trailY + 'px';
+                    requestAnimationFrame(animateTrail);
+                }
+                animateTrail();
+
+                const hoverTargets = document.querySelectorAll(
+                    'a, button, .btn, .faq-item, .faq-question, .contact-card, .hamburger, .nav-links a, .key-modal-close, .plan-modal-close, .btn-verify, .btn-cancel, .key-input, .plan-key-input'
+                    );
+                hoverTargets.forEach(el => {
+                    el.addEventListener('mouseenter', () => cursor.classList.add('cursor-hover'));
+                    el.addEventListener('mouseleave', () => cursor.classList.remove('cursor-hover'));
+                });
+            } else {
+                cursor.style.display = 'none';
+                cursorTrail.style.display = 'none';
+            }
+
+            // ===== PARTICLES =====
+            const canvas = document.getElementById('particles-canvas');
+            const ctx = canvas.getContext('2d');
+            let particles = [];
+            const particleCount = 70;
+
+            function resizeCanvas() {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            }
+            resizeCanvas();
+            window.addEventListener('resize', resizeCanvas);
+
+            class Particle {
+                constructor() {
+                    this.reset();
+                }
+                reset() {
+                    this.x = Math.random() * canvas.width;
+                    this.y = Math.random() * canvas.height;
+                    this.size = Math.random() * 2.5 + 0.8;
+                    this.speedX = (Math.random() - 0.5) * 0.6;
+                    this.speedY = (Math.random() - 0.5) * 0.6;
+                    this.opacity = Math.random() * 0.4 + 0.15;
+                    this.color = `rgba(220,220,220,${this.opacity})`;
+                    this.pulseSpeed = Math.random() * 0.02 + 0.01;
+                    this.pulseOffset = Math.random() * Math.PI * 2;
+                }
+                update() {
+                    this.x += this.speedX;
+                    this.y += this.speedY;
+                    if (this.x < -10) this.x = canvas.width + 10;
+                    if (this.x > canvas.width + 10) this.x = -10;
+                    if (this.y < -10) this.y = canvas.height + 10;
+                    if (this.y > canvas.height + 10) this.y = -10;
+                    this.currentOpacity = this.opacity + Math.sin(Date.now() * this.pulseSpeed + this
+                        .pulseOffset) * 0.18;
+                    this.currentOpacity = Math.max(0.04, Math.min(0.65, this.currentOpacity));
+                }
+                draw() {
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                    ctx.fillStyle = `rgba(220,220,220,${this.currentOpacity})`;
+                    ctx.fill();
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.size * 3, 0, Math.PI * 2);
+                    const glowGrad = ctx.createRadialGradient(this.x, this.y, this.size * 0.5, this.x, this.y,
+                        this.size * 3);
+                    glowGrad.addColorStop(0, `rgba(240,240,240,${this.currentOpacity})`);
+                    glowGrad.addColorStop(1, 'transparent');
+                    ctx.fillStyle = glowGrad;
+                    ctx.fill();
+                }
+            }
+
+            for (let i = 0; i < particleCount; i++) {
+                particles.push(new Particle());
+            }
+
+            function animateParticles() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                particles.forEach(p => {
+                    p.update();
+                    p.draw();
+                });
+                for (let i = 0; i < particles.length; i++) {
+                    for (let j = i + 1; j < particles.length; j++) {
+                        const dx = particles[i].x - particles[j].x;
+                        const dy = particles[i].y - particles[j].y;
+                        const dist = Math.sqrt(dx * dx + dy * dy);
+                        if (dist < 130) {
+                            ctx.beginPath();
+                            ctx.moveTo(particles[i].x, particles[i].y);
+                            ctx.lineTo(particles[j].x, particles[j].y);
+                            const alpha = (1 - dist / 130) * 0.1;
+                            ctx.strokeStyle = `rgba(200,200,200,${alpha})`;
+                            ctx.lineWidth = 0.6;
+                            ctx.stroke();
+                        }
+                    }
+                }
+                requestAnimationFrame(animateParticles);
+            }
+            animateParticles();
+
+            // ===== NAVBAR SCROLL EFFECT =====
+            const navbar = document.getElementById('navbar');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 60) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+
+            // ===== HAMBURGER MENU =====
+            const hamburger = document.getElementById('hamburger');
+            const mobileMenu = document.getElementById('mobileMenu');
+            const mobileLinks = document.querySelectorAll('[data-mobile-link]');
+
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                mobileMenu.classList.toggle('open');
+            });
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    hamburger.classList.remove('active');
+                    mobileMenu.classList.remove('open');
+                });
+            });
+
+            // ===== NAV ACTIVE STATE =====
+            const navLinksAll = document.querySelectorAll('.nav-links a');
+            const sections = document.querySelectorAll('section[id]');
+
+            function updateActiveNav() {
+                let current = 'home';
+                sections.forEach(section => {
+                    const top = section.getBoundingClientRect().top;
+                    if (top < window.innerHeight * 0.4) {
+                        current = section.getAttribute('id');
+                    }
+                });
+                navLinksAll.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('data-section') === current) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+            window.addEventListener('scroll', updateActiveNav);
+
+            // ===== RIPPLE EFFECT =====
+            document.querySelectorAll('.btn-ripple').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    const ripple = document.createElement('span');
+                    ripple.className = 'ripple-effect';
+                    const rect = this.getBoundingClientRect();
+                    const size = Math.max(rect.width, rect.height);
+                    ripple.style.width = ripple.style.height = size + 'px';
+                    ripple.style.left = (e.clientX - rect.left - size / 2) + 'px';
+                    ripple.style.top = (e.clientY - rect.top - size / 2) + 'px';
+                    this.appendChild(ripple);
+                    ripple.addEventListener('animationend', () => ripple.remove());
+                });
+            });
+
+            // ===== FAQ ACCORDION =====
+            const faqItems = document.querySelectorAll('.faq-item');
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    const isOpen = item.classList.contains('open');
+                    faqItems.forEach(fi => fi.classList.remove('open'));
+                    if (!isOpen) {
+                        item.classList.add('open');
+                    }
+                });
+            });
+
+            // ===== BACK TO TOP =====
+            const backToTop = document.getElementById('backToTop');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 600) {
+                    backToTop.classList.add('visible');
+                } else {
+                    backToTop.classList.remove('visible');
+                }
+            });
+            backToTop.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+            // ===== SCROLL REVEAL =====
+            const revealElements = document.querySelectorAll('.reveal');
+            const revealObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('revealed');
+                        revealObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+            revealElements.forEach(el => revealObserver.observe(el));
+
+            // ===== STATS COUNTER =====
+            const statNumbers = document.querySelectorAll('.stat-number[data-count]');
+            let statsAnimated = false;
+            const statsObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && !statsAnimated) {
+                        statsAnimated = true;
+                        statNumbers.forEach(stat => {
+                            const target = parseInt(stat.getAttribute('data-count'));
+                            const duration = 2000;
+                            const startTime = performance.now();
+                            const suffix = target === 99 ? '%' : target === 24 ? '/7' : '+';
+
+                            function update(currentTime) {
+                                const elapsed = currentTime - startTime;
+                                const progress = Math.min(elapsed / duration, 1);
+                                const eased = 1 - Math.pow(1 - progress, 3);
+                                const current = Math.floor(eased * target);
+                                if (target === 99 || target === 24) {
+                                    stat.textContent = current + suffix;
+                                } else if (target >= 1000) {
+                                    stat.textContent = current.toLocaleString() + '+';
+                                } else {
+                                    stat.textContent = current + '+';
+                                }
+                                if (progress < 1) {
+                                    requestAnimationFrame(update);
+                                } else {
+                                    if (target === 99) stat.textContent = '99%';
+                                    else if (target === 24) stat.textContent = '24/7';
+                                    else stat.textContent = target.toLocaleString() + '+';
+                                }
+                            }
+                            requestAnimationFrame(update);
+                        });
+                    }
+                });
+            }, { threshold: 0.5 });
+            const statsSection = document.getElementById('stats');
+            if (statsSection) statsObserver.observe(statsSection);
+
+            // ===== SMOOTH SCROLL FOR NAV LINKS =====
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    if (href === '#' || href === '#home') {
+                        e.preventDefault();
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                        return;
+                    }
+                    const target = document.querySelector(href);
+                    if (target) {
+                        e.preventDefault();
+                        const navHeight = navbar.offsetHeight + 10;
+                        const targetPosition = target.getBoundingClientRect().top + window.scrollY -
+                            navHeight;
+                        window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+                    }
+                });
+            });
+
+            // ===== INITIAL LOAD =====
+            window.scrollTo(0, 0);
+            updateActiveNav();
+
+            console.log('%c🎮 Premium Gaming Hub %cReady!',
+                'font-family:Orbitron,sans-serif;font-size:1.2rem;color:#fff;',
+                'color:#aaa;');
+            console.log('%cAll systems operational. Enjoy your gaming experience!',
+                'color:#b0b0b0;font-style:italic;');
+        })();
+
+        // =====================================================
+        // ===== KEY VERIFICATION MODAL (Free Download) =====
+        // =====================================================
+
+        const CORRECT_KEY = '1234';
+        const DOWNLOAD_LINK = 'https://www.mediafire.com/file/7p9ulmnslbm3qoa/BROOTH+OB54+V1.1.rar/file';
+        const ERROR_MESSAGE = 'GET KEY : WHATSAPP - 070 314 0784';
+
+        const keyModalOverlay = document.getElementById('keyModalOverlay');
+        const keyInput = document.getElementById('keyInput');
+        const keyErrorMsg = document.getElementById('keyErrorMsg');
+
+        function showKeyModal() {
+            keyInput.value = '';
+            keyInput.classList.remove('shake', 'success-flash');
+            keyErrorMsg.classList.remove('visible');
+            keyErrorMsg.textContent = '';
+            keyErrorMsg.style.color = '';
+            keyErrorMsg.style.animation = '';
+            keyErrorMsg.style.textShadow = '';
+            keyModalOverlay.classList.add('active');
+            document.body.classList.add('body-no-scroll');
+            setTimeout(() => {
+                keyInput.focus();
+            }, 350);
+        }
+
+        function closeKeyModal() {
+            keyModalOverlay.classList.remove('active');
+            document.body.classList.remove('body-no-scroll');
+            keyInput.value = '';
+            keyInput.classList.remove('shake', 'success-flash');
+            keyErrorMsg.classList.remove('visible');
+            keyErrorMsg.textContent = '';
+            keyErrorMsg.style.color = '';
+            keyErrorMsg.style.animation = '';
+            keyErrorMsg.style.textShadow = '';
+        }
+
+        function verifyKey() {
+            const enteredKey = keyInput.value.trim();
+            keyInput.classList.remove('shake', 'success-flash');
+            keyErrorMsg.classList.remove('visible');
+            keyErrorMsg.style.color = '';
+            keyErrorMsg.style.animation = '';
+            keyErrorMsg.style.textShadow = '';
+
+            if (enteredKey === '') {
+                keyErrorMsg.textContent = 'Please enter a key.';
+                keyErrorMsg.classList.add('visible');
+                keyInput.classList.add('shake');
+                keyInput.focus();
+                setTimeout(() => keyInput.classList.remove('shake'), 500);
+                return;
+            }
+
+            if (enteredKey === CORRECT_KEY) {
+                keyInput.classList.add('success-flash');
+                keyErrorMsg.textContent = '✅ Access Granted! Opening download...';
+                keyErrorMsg.style.color = 'var(--success)';
+                keyErrorMsg.classList.add('visible');
+                keyErrorMsg.style.animation = 'none';
+                keyErrorMsg.style.textShadow = '0 0 12px rgba(76,175,132,0.6)';
+                setTimeout(() => {
+                    window.open(DOWNLOAD_LINK, '_blank');
+                    closeKeyModal();
+                    keyErrorMsg.style.color = '';
+                    keyErrorMsg.style.animation = '';
+                    keyErrorMsg.style.textShadow = '';
+                }, 800);
+            } else {
+                keyErrorMsg.textContent = ERROR_MESSAGE;
+                keyErrorMsg.classList.add('visible');
+                keyInput.classList.add('shake');
+                keyInput.focus();
+                keyInput.select();
+                setTimeout(() => keyInput.classList.remove('shake'), 500);
+            }
+        }
+
+        keyInput.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                verifyKey();
+            }
+            if (e.key === 'Escape') {
+                e.preventDefault();
+                closeKeyModal();
+            }
+        });
+
+        keyModalOverlay.addEventListener('click', function(e) {
+            if (e.target === keyModalOverlay) {
+                closeKeyModal();
+            }
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && keyModalOverlay.classList.contains('active')) {
+                closeKeyModal();
+            }
+        });
+
+        // =====================================================
+        // ===== PLAN KEY MODAL (Premium Plans) =====
+        // =====================================================
+
+        const PLAN_KEY = '2010';
+        const PLAN_REDIRECT_LINK = 'https://www.mediafire.com/file/7p9ulmnslbm3qoa/BROOTH+OB54+V1.1.rar/file';
+        const WHATSAPP_NUMBER = '94703140784';
+
+        const planModalOverlay = document.getElementById('planModalOverlay');
+        const planModalPlanName = document.getElementById('planModalPlanName');
+        const planModalOptions = document.getElementById('planModalOptions');
+        const planKeyInputWrapper = document.getElementById('planKeyInputWrapper');
+        const planKeyInput = document.getElementById('planKeyInput');
+        const planKeyErrorMsg = document.getElementById('planKeyErrorMsg');
+        const planKeySubmitRow = document.getElementById('planKeySubmitRow');
+        const planBuyKeyBtn = document.getElementById('planBuyKeyBtn');
+        const planEnterKeyBtn = document.getElementById('planEnterKeyBtn');
+
+        let currentPlanType = '';
+        let currentPlanName = '';
+        let currentPlanPrice = '';
+
+        function showPlanModal(planType, planName, planPrice) {
+            currentPlanType = planType;
+            currentPlanName = planName;
+            currentPlanPrice = planPrice;
+
+            // Reset state
+            planModalPlanName.textContent = planName + ' — ' + planPrice;
+            planModalOptions.style.display = 'flex';
+            planKeyInputWrapper.classList.remove('visible');
+            planKeySubmitRow.classList.remove('visible');
+            planKeyInput.value = '';
+            planKeyInput.classList.remove('shake', 'success-flash');
+            planKeyErrorMsg.classList.remove('visible');
+            planKeyErrorMsg.textContent = '';
+            planKeyErrorMsg.style.color = '';
+
+            planModalOverlay.classList.add('active');
+            document.body.classList.add('body-no-scroll');
+        }
+
+        function closePlanModal() {
+            planModalOverlay.classList.remove('active');
+            document.body.classList.remove('body-no-scroll');
+            resetPlanModalState();
+        }
+
+        function resetPlanModalState() {
+            planModalOptions.style.display = 'flex';
+            planKeyInputWrapper.classList.remove('visible');
+            planKeySubmitRow.classList.remove('visible');
+            planKeyInput.value = '';
+            planKeyInput.classList.remove('shake', 'success-flash');
+            planKeyErrorMsg.classList.remove('visible');
+            planKeyErrorMsg.textContent = '';
+            planKeyErrorMsg.style.color = '';
+        }
+
+        function resetPlanModal() {
+            resetPlanModalState();
+        }
+
+        function planBuyKey() {
+            // Build WhatsApp message with package details
+            const message = encodeURIComponent(
+                `Hi, I want to buy the *${currentPlanName}* (${currentPlanPrice}). Please send me the payment details and key.`
+            );
+            const whatsappURL = `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`;
+            window.open(whatsappURL, '_blank');
+        }
+
+        function planShowKeyInput() {
+            planModalOptions.style.display = 'none';
+            planKeyInputWrapper.classList.add('visible');
+            planKeySubmitRow.classList.add('visible');
+            planKeyInput.value = '';
+            planKeyInput.classList.remove('shake', 'success-flash');
+            planKeyErrorMsg.classList.remove('visible');
+            planKeyErrorMsg.textContent = '';
+            planKeyErrorMsg.style.color = '';
+            setTimeout(() => {
+                planKeyInput.focus();
+            }, 250);
+        }
+
+        function verifyPlanKey() {
+            const enteredKey = planKeyInput.value.trim();
+            planKeyInput.classList.remove('shake', 'success-flash');
+            planKeyErrorMsg.classList.remove('visible');
+            planKeyErrorMsg.style.color = '';
+
+            if (enteredKey === '') {
+                planKeyErrorMsg.textContent = 'Please enter your plan key.';
+                planKeyErrorMsg.classList.add('visible');
+                planKeyInput.classList.add('shake');
+                planKeyInput.focus();
+                setTimeout(() => planKeyInput.classList.remove('shake'), 500);
+                return;
+            }
+
+            if (enteredKey === PLAN_KEY) {
+                planKeyInput.classList.add('success-flash');
+                planKeyErrorMsg.textContent = '✅ Key Verified! Redirecting...';
+                planKeyErrorMsg.style.color = 'var(--success)';
+                planKeyErrorMsg.classList.add('visible');
+                setTimeout(() => {
+                    window.open(PLAN_REDIRECT_LINK, '_blank');
+                    closePlanModal();
+                    planKeyErrorMsg.style.color = '';
+                }, 800);
+            } else {
+                planKeyErrorMsg.textContent = '❌ Invalid key. Please try again or contact 070 314 0784.';
+                planKeyErrorMsg.classList.add('visible');
+                planKeyInput.classList.add('shake');
+                planKeyInput.focus();
+                planKeyInput.select();
+                setTimeout(() => planKeyInput.classList.remove('shake'), 500);
+            }
+        }
+
+        // Enter key in plan key input
+        planKeyInput.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                verifyPlanKey();
+            }
+            if (e.key === 'Escape') {
+                e.preventDefault();
+                closePlanModal();
+            }
+        });
+
+        // Click outside plan modal to close
+        planModalOverlay.addEventListener('click', function(e) {
+            if (e.target === planModalOverlay) {
+                closePlanModal();
+            }
+        });
+
+        // Escape key globally for plan modal
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && planModalOverlay.classList.contains('active')) {
+                closePlanModal();
+            }
+        });
+
+        console.log('%c🔐 Key Verification System %cActive',
+            'font-family:Orbitron,sans-serif;font-size:0.9rem;color:#d4a843;',
+            'color:#4caf84;');
+        console.log('%c💎 Premium Plan Modal %cReady | Plan Key: 2010 | Redirect: youtube.com',
+            'font-family:Orbitron,sans-serif;font-size:0.9rem;color:#fff;',
+            'color:#aaa;');
+    </script>
+</body>
+</html>
